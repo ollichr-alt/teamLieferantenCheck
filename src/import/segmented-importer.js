@@ -1,6 +1,8 @@
-import { openDb, txDone, putOne } from "../db/idb.js";
+import { openDb, txDone } from "../db/idb.js";
 import { STORES } from "../db/schema.js";
 import { validateManifest } from "./package-contract.js";
+
+const ACTIVE_SLOT = "A";
 
 const KIND_TO_STORE = {
   suppliers: STORES.suppliers,
@@ -46,7 +48,7 @@ function parseJsonLines(text) {
     if (!line) continue;
     try {
       rows.push(JSON.parse(line));
-    } catch (error) {
+    } catch {
       const e = new Error(`Ungültige JSONL-Zeile ${i + 1}.`);
       e.code = "DATASET_JSONL_INVALID";
       throw e;
@@ -76,13 +78,6 @@ async function readSegment(file, segment) {
   const error = new Error(`Unbekanntes Segmentformat ${segment.format}.`);
   error.code = "DATASET_FORMAT_UNSUPPORTED";
   throw error;
-}
-
-async function clearTargetStores(db) {
-  const stores = Object.values(KIND_TO_STORE);
-  const tx = db.transaction(stores, "readwrite");
-  for (const name of stores) tx.objectStore(name).clear();
-  await txDone(tx);
 }
 
 export async function importSegmentedDataset(fileMap, manifestFile, onProgress = () => {}) {
@@ -144,7 +139,7 @@ export async function importSegmentedDataset(fileMap, manifestFile, onProgress =
     const store = tx.objectStore(storeName);
 
     for (const row of rows) {
-      store.put(row);
+      store.put({ ...row, slot: ACTIVE_SLOT });
       written++;
 
       if (written % 1000 === 0) {
@@ -158,7 +153,9 @@ export async function importSegmentedDataset(fileMap, manifestFile, onProgress =
     }
   }
 
-  tx.objectStore(STORES.meta).put({
+  const meta = tx.objectStore(STORES.meta);
+  meta.put({ key: "activeSlot", value: ACTIVE_SLOT });
+  meta.put({
     key: "dataset",
     value: {
       datasetVersion: manifest.datasetVersion,
