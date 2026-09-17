@@ -1,0 +1,28 @@
+# Sensitive / local business data
+*.lcworkspace
+*.lcdata
+*.xlsx
+*.xls
+*.csv
+*.db
+*.sqlite
+*.sqlite3
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Allow committed demo dataset only
+!sample-data/sample-dataset.lcdata
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build / package output
+node_modules/
+dist/
+build/
