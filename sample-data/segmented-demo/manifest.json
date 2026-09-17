@@ -1,0 +1,24 @@
+{
+  "type": "team-lieferantencheck-dataset",
+  "schemaVersion": 1,
+  "packageId": "demo-0.5",
+  "datasetVersion": "2026.09.17-demo-segmented",
+  "createdAt": "2026-09-17T18:30:00Z",
+  "source": "segmented-demo",
+  "counts": {
+    "suppliers": 2,
+    "locations": 2,
+    "articles": 3,
+    "stock": 2,
+    "sales": 2,
+    "aggregates": 3
+  },
+  "segments": [
+    {"kind":"suppliers","file":"suppliers.jsonl","format":"jsonl","rows":2,"sha256":"dc0ae0cc76364c8cc8204905d4c7626da9b11fac09afbae650fde5e908cc5543"},
+    {"kind":"locations","file":"locations.jsonl","format":"jsonl","rows":2,"sha256":"ed7583897c477b613a1e03fb814011609eefd3f4096fe344d40893691763fe37"},
+    {"kind":"articles","file":"articles.jsonl","format":"jsonl","rows":3,"sha256":"a57af7b6b49e6851bfaccc38c06b8bb4ba1d6414fe5e7ca4687650d7f71e6889"},
+    {"kind":"stock","file":"stock.jsonl","format":"jsonl","rows":2,"sha256":"f921bfe0335f0757ff0703ca1a3d060004a0f1ed62c1765dfbd3a6e586f427f5"},
+    {"kind":"sales","file":"sales.jsonl","format":"jsonl","rows":2,"sha256":"7df54f605da9529f45f70cd8fd29424ecbddfd6cdf352ff6be5f7322d02df205"},
+    {"kind":"aggregates","file":"aggregates.jsonl","format":"jsonl","rows":3,"sha256":"718ac52d616313d1d42addd863d17fa660a55d9e4e74cffb3238f58e577a65d8"}
+  ]
+}
