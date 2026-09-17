@@ -1,4 +1,4 @@
-const CACHE = "lieferantencheck-shell-v0.5.0";
+const CACHE = "lieferantencheck-shell-v0.6.0";
 const SHELL = [
   "./",
   "./index.html",
