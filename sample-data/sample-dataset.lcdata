@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 2,
+  "manifest": {
+    "datasetVersion": "2026.09.17-core-0.2",
+    "createdAt": "2026-09-17T18:00:00Z"
+  },
+  "suppliers": [
+    {"supplierId":"MAKITA","name":"Makita"},
+    {"supplierId":"METABO","name":"Metabo"}
+  ],
+  "locations": [
+    {"locationId":"203","name":"Eggebek"},
+    {"locationId":"999","name":"Teststandort"}
+  ],
+  "articles": [
+    {"articleNumber":"100001","description":"Akku-Bohrschrauber 18V","model":"DDF484","supplierId":"MAKITA","ean":"400000000001"},
+    {"articleNumber":"100002","description":"Akku 18V 5,0Ah","model":"BL1850B","supplierId":"MAKITA","ean":"400000000002"},
+    {"articleNumber":"100003","description":"Winkelschleifer","model":"W 18 L 9-125","supplierId":"METABO","ean":"400000000003"}
+  ],
+  "stock": [],
+  "sales": [],
+  "aggregates": []
+}
