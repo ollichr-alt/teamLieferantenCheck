@@ -1,0 +1,3 @@
+{"key":"global","type":"global","revenue":7079.49,"stockValue":2949.24,"problemCapital":1875.0,"slowMovers":1}
+{"key":"supplier:MAKITA","type":"supplier","supplierId":"MAKITA","supplierName":"Makita","problemCapital":1875.0,"revenue":7079.49}
+{"key":"article:100002","type":"article","articleNumber":"100002","slowMover":true}
